@@ -3,15 +3,15 @@ import 'package:flutter/services.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class YouTubeVideo extends StatefulWidget {
-  String youtubeUrl;
-  YouTubeVideo(this.youtubeUrl);
+class VideoPlayer extends StatefulWidget {
+  String YUrl;
+  VideoPlayer(this.YUrl);
 
   @override
-  State<YouTubeVideo> createState() => _YouTubeVideoState();
+  State<VideoPlayer> createState() => _VideoPlayerState();
 }
 
-class _YouTubeVideoState extends State<YouTubeVideo> {
+class _VideoPlayerState extends State<VideoPlayer> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
   late YoutubePlayerController _controller;
   late TextEditingController _idController;
@@ -21,9 +21,8 @@ class _YouTubeVideoState extends State<YouTubeVideo> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    videoId = YoutubePlayer.convertUrlToId(widget.youtubeUrl)!;
+    videoId = YoutubePlayer.convertUrlToId(widget.YUrl)!;
     _controller = YoutubePlayerController(
       initialVideoId: videoId,
       flags: const YoutubePlayerFlags(
